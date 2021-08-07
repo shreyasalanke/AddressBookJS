@@ -185,4 +185,14 @@ class AddressBook {
     let countByCity = AddressBookArray.filter(contact => contact.city == givenCity ).reduce((acc,val) => acc+1,0);
     console.log('Count by City ' + givenCity + ' is : ' + countByCity);
  }
-}       
+//sorting by alphabetically
+    const prompt = require('prompt-sync')();
+    console.log("Do You Want to Sort the Contacts:  \n1. YES \n2. NO")
+    let inputSort = parseInt(prompt("Enter your choice:  "))
+    if(inputSort == 1)
+  {
+    AddressBookArray.sort();
+    for(let i = 0; i < AddressBookArray.length; i++)
+    console.log(AddressBookArray[i].toString())
+}
+}          
