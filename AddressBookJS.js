@@ -1,17 +1,9 @@
 console.log("Welcome to The Address Book JS Program ") 
 class Contact{
-    firstName;
-    lastName;
-    address;
-    city;
-    state;
-    zip;
-    phoneNo;
-    email;
-
-    constructor(...params){
-        this.firstName = params[0];
-        this.lastName = params[1];
+    constructor(...params)
+    {        
+        this.firstName = params[0]        
+        this.lastName = params[1];        
         this.address = params[2];
         this.city = params[3];
         this.state = params[4];
@@ -20,12 +12,8 @@ class Contact{
         this.email = params[7];
     }
 
-    get firstName()
-    { 
-        return this._firstName
-    }
-    set firstName(firstName)
-    {
+    get firstName(){ return this._firstName}
+    set firstName(firstName){
         let nameRegex = RegExp('^[A-Z]{1}[a-zA-Z]{2,}$')
         if(nameRegex.test(firstName))
             this._firstName = firstName
@@ -85,7 +73,22 @@ class Contact{
         else throw "Incorrect Email"
     }
 
+    toString(){
+        return "FirstName: " + this.firstName + " LastName: " + this.lastName + " Address: " + this.address + " City: " + this.city +
+                " State: " + this.state + " Zip: " + this.zip + " PhoneNO: " + this.phoneNo + " Email: " + this.email;
+    }
+
 }
 
-let contact1 = new Contact("Shreya", "salanke", "SMG", "Shivamogga", "Karnataka",577203,9876543210, "shreyasalanke123@gmail.com")
-console.log(contact1)
+let contact1 = new Contact("Shreya", "Salanke", "SMG", "Shivamogga", "Karnataka", "577203", "91 8765674321", "shreya87@gmail.com")
+let contact2 = new Contact("Sharan", "Gowdar", "BNG", "Shivamogga", "Karnataka", "566098", "91 9870986543", "sharan8@gmail.com")
+let contact3 = new Contact("Kendu", "Gowdar", "MYS", "Shivamogga", "Karnataka", "599807", "91 9876567432", "kendu3@gmail.com")
+
+var addressBookArray = new Array()
+addressBookArray.push(contact1)
+addressBookArray.push(contact2)
+addressBookArray.push(contact3)    
+
+for(let i = 0; i < addressBookArray.length; i++){
+    console.log(addressBookArray[i].toString())
+}
