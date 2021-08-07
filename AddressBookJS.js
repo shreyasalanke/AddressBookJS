@@ -169,8 +169,14 @@ class AddressBook {
     }
     //searchperson
     {
-        let givenCity = 'Hyderabad';
+        let givenCity = 'Shivamogga';
         let searchPersonInCityOrState = AddressBookArray.filter(contact => contact.firstName == 'Shreya' && contact.city == givenCity );
         console.log(searchPersonInCityOrState.toString());                                    
     }
-} 
+   //viewperson
+  {
+    let givenCity = 'Shivamogga';
+    let searchPersonInCityOrState = AddressBookArray.filter(contact => contact.city == givenCity );
+    console.log(searchPersonInCityOrState.toString());
+  }
+}    
