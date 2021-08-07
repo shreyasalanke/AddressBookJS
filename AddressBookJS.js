@@ -1,3 +1,4 @@
+console.log("Welcome to The Address Book JS Program ") 
 class Contact{
     constructor(...params){        
         this.firstName = params[0]        
@@ -149,3 +150,13 @@ function findContact(fname, lname){
 let param1 = prompt("Enter the First Name:  ")
 let param2 = prompt("Enter the Last Name:  ")
 findContact(param1, param2)
+
+function deleteContact(fname, lname){
+    let contactToDelete = findContact(fname. lname)
+    addressBookArray.pop(contactToDelete)
+}
+let contact4 = new Contact("Naveen", "Kumar", "Madhapur", "HYderabad", "TElangana", "526341", "91 9829280202", "naveen@gmail.com")
+addressBookArray.push(contact4)
+let param3 = prompt("Enter the First Name (contact to delete):  ")
+let param4 = prompt("Enter the Last Name (contact to delete):  ")
+deleteContact(param3, param4)
