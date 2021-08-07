@@ -137,10 +137,10 @@ class AddressBook {
     AddressBookArray.push(new AddressBook("Sharan", "Gowdar", "BNGS", "Shivamogga", "Karnataka", "566098", "91 9870986543", "sharan8@gmail.com"));
     AddressBookArray.push(new AddressBook("Kendu", "Gowdar", "MYSS", "Shivamogga", "Karnataka", "599807", "91 9876567432", "kendu3@gmail.com"));
     
-    AddressBookArray.find(contact => contact.firstName == 'Dinesh').firstName = 'Dinesh';
+    AddressBookArray.find(contact => contact.firstName == 'Shreya').firstName = 'Shreya';
       //DeleteContact
     {    
-        let indexToBeDel = AddressBookArray.indexOf(contact => contact.firstName=='Dinesh')
+        let indexToBeDel = AddressBookArray.indexOf(contact => contact.firstName=='Shreya')
         
     }
      //number of contacts
@@ -179,4 +179,10 @@ class AddressBook {
     let searchPersonInCityOrState = AddressBookArray.filter(contact => contact.city == givenCity );
     console.log(searchPersonInCityOrState.toString());
   }
-}    
+ //count by city or state
+ {
+    let givenCity = 'Shivamogga';
+    let countByCity = AddressBookArray.filter(contact => contact.city == givenCity ).reduce((acc,val) => acc+1,0);
+    console.log('Count by City ' + givenCity + ' is : ' + countByCity);
+ }
+}       
