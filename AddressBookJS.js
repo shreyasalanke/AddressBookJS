@@ -82,20 +82,34 @@ class Contact{
 let contact1 = new Contact("Shreya", "Salanke", "SMGS", "Shivamogga", "Karnataka", "577203", "91 8765674321", "shreya87@gmail.com")
 let contact2 = new Contact("Sharan", "Gowdar", "BNGS", "Shivamogga", "Karnataka", "566098", "91 9870986543", "sharan8@gmail.com")
 let contact3 = new Contact("Kendu", "Gowdar", "MYSS", "Shivamogga", "Karnataka", "599807", "91 9876567432", "kendu3@gmail.com")
+let contact1 = new Contact("Shivani", "Jagdesh", "SMGS", "Banglore", "Karnataka", "577203", "91 8765674321", "shivani@gmail.com")
+let contact1 = new Contact("Harsha", "Salanke", "DVGS", "Davangere", "Karnataka", "577203", "91 8765676721", "shreya97@gmail.com")
 
 var addressBookArray = new Array()
-addressBookArray.push(contact1)
-addressBookArray.push(contact2)
-addressBookArray.push(contact3)    
+function addContact(contact){
+    let duplicateContact = findContact(contact.firstName, contact.lastName)
+    if(duplicateContact != null)
+        console.log("Can't Add Contact. Dupicate Contact Found.")
+    else
+        addressBookArray.push(contact)
+}
+addContact(contact1)
+addContact(contact2)
+addContact(contact3)
+addContact(contact4)
+addContact(contact5)
 
-const prompt = require('prompt-sync')();
 function findContact(fname, lname){
     let contactToEdit;
     for(let i = 0; i < addressBookArray.length; i++){
         if(addressBookArray[i].firstName === fname && addressBookArray[i].lastName === lname)
             contactToEdit = addressBookArray[i]
     }
-
+    return contactToEdit;
+}
+const prompt = require('prompt-sync')();
+function findContactAndEdit(fname, lname){
+    let contactToEdit = findContact(fname,lname)
     if(contactToEdit == null)
         console.log("No Contact Found To Edit")
     else{
@@ -147,22 +161,23 @@ function findContact(fname, lname){
     }
 }
 
-let param1 = prompt("Enter the First Name:  ")
-let param2 = prompt("Enter the Last Name:  ")
-findContact(param1, param2)
+let param1 = prompt("Enter the First Name (contact to edit):  ")
+let param2 = prompt("Enter the Last Name (contact to edit):  ")
+findContactAndEdit(param1, param2)
 
 function deleteContact(fname, lname){
     let contactToDelete = findContact(fname. lname)
-    addressBookArray.pop(contactToDelete)
+    if(contactToDelete == null)
+        console.log("No Contact Found To Delete")
+    else
+        addressBookArray.pop(contactToDelete)
 }
-let contact4 = new Contact("Naveen", "Kumar", "Madhapur", "HYderabad", "TElangana", "526341", "91 9829280202", "naveen@gmail.com")
 addressBookArray.push(contact4)
 let param3 = prompt("Enter the First Name (contact to delete):  ")
 let param4 = prompt("Enter the Last Name (contact to delete):  ")
 deleteContact(param3, param4)
 
-function count(counter)
-{
+function count(counter){
     return counter + 1;
 }
 console.log("Total Number of Contacts: " + addressBookArray.reduce(count, 0))
